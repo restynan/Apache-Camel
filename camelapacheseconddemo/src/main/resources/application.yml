@@ -1,0 +1,34 @@
+server:
+  port: 8083
+spring:
+  profiles:
+    active: dev
+---
+spring:
+  profile: mock
+startRoute: timer:hello?period=10s
+fromRoute: direct:input
+toRoute1: mock:output
+message: MOCK enviroment
+
+---
+spring:
+  profile: dev
+startRoute: timer:hello?period=10s
+fromRoute: file:data/input?delete=true&readLock=none&allowNullBody=true
+toRoute1: file:data/output
+message: DEV enviroment
+---
+spring:
+  profiles: stage
+startRoute: timer:hello?period=10s
+fromRoute: file:data/input?delete=true&readLock=none
+toRoute1: file:data/output
+message: STAGE enviroment
+---
+spring:
+  profiles: prod
+startRoute: timer:hello?period=10s
+fromRoute: file:data/input?delete=true&readLock=none
+toRoute1: file:data/output
+message: PROD enviroment
