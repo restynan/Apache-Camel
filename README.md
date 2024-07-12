@@ -27,4 +27,4 @@ This module integrates Camel with Spring Boot, providing a RESTful API for manag
 To get started with this project, clone the repository and follow the instructions in each submodule's README file.
 
 ```bash
-git clone https://github.com/restynan/Apache-Camel
+git clone https://github.com/restynan/Apache-Camel.git
